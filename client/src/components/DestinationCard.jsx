@@ -22,7 +22,14 @@ export function DestinationCard({ image, title, description, url, category, more
         </div>
         <div className="flex-1 p-4 flex flex-col justify-between h-full">
             <div>
-                <h2 className="text-xl font-bold ">{title}</h2>
+            <a 
+                href={url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xl font-bold block hover:text-blue-500"
+            >
+                {title}
+            </a>
                 <span className="text-gray-400 my-2">{truncatedDescription}</span>
                 <a 
                     href={url} 
