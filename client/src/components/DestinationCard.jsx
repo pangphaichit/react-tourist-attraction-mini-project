@@ -16,11 +16,11 @@ export function DestinationCard({ image, title, description, url, category, more
     };
 
     return (
-        <div className="flex items-start rounded-lg mb-5 overflow-hidden my-10 h-auto">
-        <div className="flex-none w-1/3  h-full">
-            <img src={image} alt="Destination" className="rounded-3xl w-full h-full object-cover" />
+        <div className="flex items-start rounded-lg mb-5 overflow-hidden my-10 h-auto ">
+        <div className="flex-none w-1/3  h-full mx-10">
+            <img src={image} alt="Destination" className="rounded-3xl w-96 h-72 object-cover" />
         </div>
-        <div className="flex-1 p-4 flex flex-col justify-between h-full">
+        <div className="flex-1  flex flex-col justify-between h-full">
             <div>
             <a 
                 href={url} 
