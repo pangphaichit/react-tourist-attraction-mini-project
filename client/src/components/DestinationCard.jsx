@@ -1,17 +1,17 @@
 import React from 'react';
-import linkIcon from '../assets/link.png';
-
+import copyLinkIcon from '../assets/link.png';
 
 export function DestinationCard({ image, title, description, url, category, morePhoto, onCategoryClick  }) {
     const truncatedDescription = description.length > 100 ? description.substring(0, 100) + '...' : description;
 
     const handleCopyLink = () => {
-        navigator.clipboard.writeText(url) 
+        navigator.clipboard.writeText(url)
             .then(() => {
-                alert("Link copied to clipboard!"); 
+                alert("คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว");
             })
             .catch((err) => {
-                console.error("Could not copy text: ", err);
+                console.error("ไม่สามารถคัดลอกข้อความ: ", err);
+                alert("Failed to copy link. Please try again.");
             });
     };
 
@@ -44,6 +44,13 @@ export function DestinationCard({ image, title, description, url, category, more
                     <img key={index} src={photo} alt={`Additional ${index + 1}`} className=" w-20 h-20 object-cover rounded-xl" />
                 ))}
             </div>
+            <div className="flex items-end justify-end">
+            <img 
+            src={copyLinkIcon}
+             onClick={handleCopyLink} 
+             className="icon items-end-4 w-12 h-12 cursor-pointer" 
+             />
+             </div>
         </div>
     </div>
     )
