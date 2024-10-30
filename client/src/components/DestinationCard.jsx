@@ -1,8 +1,19 @@
 import React from 'react';
+import linkIcon from '../assets/link.png';
 
 
-export function DestinationCard({ image, title, description, url, category, morePhoto }) {
+export function DestinationCard({ image, title, description, url, category, morePhoto, onCategoryClick  }) {
     const truncatedDescription = description.length > 100 ? description.substring(0, 100) + '...' : description;
+
+    const handleCopyLink = () => {
+        navigator.clipboard.writeText(url) 
+            .then(() => {
+                alert("Link copied to clipboard!"); 
+            })
+            .catch((err) => {
+                console.error("Could not copy text: ", err);
+            });
+    };
 
     return (
         <div className="flex items-start rounded-lg mb-5 overflow-hidden my-10 h-auto">
@@ -25,7 +36,7 @@ export function DestinationCard({ image, title, description, url, category, more
             <div className="my-2">
                 <span className="text-gray-400"> หมวด </span>
                     {category.map((tag, index) => (
-                        <span key={index} className="text-gray-400 mr-2 underline">{tag}</span>
+                        <span key={index} className="text-gray-400 mr-2 underline"  onClick={() => onCategoryClick(tag)}>{tag}</span>
                     ))}
                 </div>
             <div className="flex flex-wrap gap-2 mt-4">

@@ -17,27 +17,31 @@ export function DestinationHighlight() {
             console.error(error);
         }
     }
-    fetchDestinations()
 
     useEffect(() => {
-        if (inputDestination.trim() !== "") {
             fetchDestinations();
-        } else {
-            setDestinations([]); 
-        }
     }, [inputDestination]);
+
+    const handleCategoryClick = (category) => {
+        setInputDestination((prev) => {
+            const newInput = prev ? `${prev} ${category}` : category; 
+            return newInput.trim();
+        });
+    };
 
     return (
         <section className="w-full justify-center flex mt-8 mb-8 font-sans">
             <div>
-                <h1 className=" text-4xl text-sky-500 text-center font-sans">เที่ยวไหนดี</h1>
+                <h1 className=" text-4xl font-bold text-sky-500 text-center font-sans">เที่ยวไหนดี</h1>
                 <div className=" thisbox flex flex-col w-1/2 mx-auto my-2 font-sans">
                 <label htmlFor="search-input" className="text-start">
                 ค้นหาที่เที่ยว
                 </label>
                 <input
+                id="search-input"
                 type="text"
                 placeholder="หาที่เที่ยวแล้วไปกัน..."
+                value={inputDestination}
                 className="border-b-2 border-b-gray-200 rounded-t text-center"
                 onChange={(event)=> {setInputDestination(event.target.value)}}
                 >
@@ -53,6 +57,7 @@ export function DestinationHighlight() {
                                  url={eachDestination.url} 
                                  category={eachDestination.tags} 
                                  morePhoto={eachDestination.photos.slice(1)} 
+                                 onCategoryClick={handleCategoryClick}
                             />
                             );
             })}
