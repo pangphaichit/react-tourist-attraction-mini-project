@@ -3,3 +3,7 @@
     height: 32px; 
     cursor: pointer; 
 }
+
+body {
+    font-family: 'Noto Sans Thai', sans-serif; 
+}

@@ -30,7 +30,7 @@ export function DestinationHighlight() {
     };
 
     return (
-        <section className="w-full justify-center flex mt-8 mb-8 font-sans">
+        <section className="w-full justify-center flex mt-8 mb-8 font-noto">
             <div>
                 <h1 className=" text-4xl font-bold text-sky-500 text-center font-sans">เที่ยวไหนดี</h1>
                 <div className=" thisbox flex flex-col w-1/2 mx-auto my-2 font-sans">
