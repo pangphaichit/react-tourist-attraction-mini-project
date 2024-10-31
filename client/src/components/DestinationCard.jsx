@@ -43,7 +43,7 @@ export function DestinationCard({ image, title, description, url, category, more
             <div className="my-2">
                 <span className="text-gray-400"> หมวด </span>
                     {category.map((tag, index) => (
-                        <span key={index} className="text-gray-400 mr-2 underline"  onClick={() => onCategoryClick(tag)}>{tag}</span>
+                        <span key={index} className="text-gray-400 mr-2 underline cursor-pointer"  onClick={() => onCategoryClick(tag)}>{tag}</span>
                     ))}
                 </div>
             <div className="flex flex-wrap gap-2 mt-4">
