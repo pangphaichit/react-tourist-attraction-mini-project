@@ -47,7 +47,7 @@ export function DestinationHighlight() {
                 >
                 </input>
                 </div>
-                <div className="w-3/4 mx-auto">
+                <div className="w-full mx-auto">
                 {destinations.map((eachDestination) => {
                     return (<DestinationCard
                                  key={eachDestination.eid} 
